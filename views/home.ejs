@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Homepage</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+           
+        }
+        .container {
+            margin-top: 20px;
+            margin-left: 100px;
+            padding-left: 10px;
+            padding-right: 10px; 
+        }
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            overflow: hidden;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-title {
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        nav {
+            background-color: #343a40;
+        }
+        nav a {
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .card-img-top {
+                height: 150px; 
+            }
+            .card-title {
+                font-size: 1rem;
+            }
+            .container {
+                margin: 10px auto; 
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+    <div class="container row row-cols-1 row-cols-md-4 g-4">
+        <% blogs.forEach(blog => { %>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="<%= blog.coverImageURL %>" class="card-img-top" alt="Blog Image">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= blog.title %></h5>
+                        <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+    <%- include('./partials/scripts') %>
+</body>
+</html>

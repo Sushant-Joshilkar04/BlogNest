@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Add New Blog</title>
+    <style>
+        body {
+         
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+           
+        }
+
+        label {
+            font-weight: bold;
+            color: #343a40;
+        }
+
+        input, textarea {
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+        }
+
+        .form-floating textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .form-label {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: block;
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            input, textarea, button {
+                font-size: 0.9rem;
+            }
+
+            label {
+                font-size: 1rem;
+            }
+
+            button {
+                width: 30%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+
+   
+    <div class="container">
+        <h1 class="mb-4" style="color: #343a40; text-align: center;">Create a New Blog</h1>
+        <form action="/blog" method="post" enctype="multipart/form-data">
+           
+            <div class="mb-3">
+                <label for="title" class="form-label">Blog Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Enter the blog title" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="coverImage" class="form-label">Cover Image</label>
+                <input type="file" class="form-control" id="coverImage" name="coverImage" required>
+            </div>
+
+            <div class="form-floating mb-4  ">
+              <textarea class="form-control" id="floatingTextarea2" name="body" placeholder="Write your blog content here..." style="height: 300px;" required></textarea>
+
+                <label for="floatingTextarea2">Write Your Blog</label>
+            </div>
+
+            <div>
+                <button class="btn btn-primary" type="submit">Publish Blog</button>
+            </div>
+        </form>
+    </div>
+
+    <%- include('./partials/scripts') %>
+</body>
+</html>

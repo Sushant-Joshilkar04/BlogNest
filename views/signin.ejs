@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Signin</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+      
+        }
+        .container {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .btn-primary {
+            width: 100%; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <%- include('./partials/signinerr') %>
+    
+        <form action="/user/signin" method="post">
+            <div class="mb-3 mt-3">
+                <div  class="form-label text-center text-2xl font-bold mb-6>
+               <label for="sign-in>Login</label>
+                </div>
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+    </div>
+    <%- include('./partials/scripts') %>
+</body>
+</html>

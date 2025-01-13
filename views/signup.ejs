@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Signup</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #343a40;
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                margin: 10px;
+                box-shadow: none;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>BlogNest: Where Ideas Take Flight</h1>
+        <% if (error) { %>
+            <div style="color: red; margin-top: 10px; background-color: #ffffff; 
+            padding: 15px; width: 100%; margin: 0 auto; text-align: center; ">
+    <%= error %>
+</div>
+        <% } %>
+        <form action="/user/signup" method="post">
+            <div class="mb-3">
+                <label for="exampleFullName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" name="fullName" id="exampleFullName" required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" required>
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
+    </div>
+    <%- include('./partials/scripts') %>
+</body>
+</html>
+
