@@ -10,7 +10,6 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            
         }
 
         .container {
@@ -39,14 +38,17 @@
     </style>
 </head>
 <body>
+    <%- include('./partials/cursor') %>
     <div class="container mt-5">
         <h1>BlogNest: Where Ideas Take Flight</h1>
+
         <% if (error) { %>
-            <div style="color: red; margin-top: 10px; background-color: #ffffff; 
-            padding: 15px; width: 100%; margin: 0 auto; text-align: center; ">
-    <%= error %>
-</div>
+            <div style="color: red; margin-top: 10px; background-color: #ffffff; padding: 15px; width: 100%; margin: 0 auto; text-align: center;">
+                <%= error %>
+            </div>
         <% } %>
+
+   
         <form action="/user/signup" method="post">
             <div class="mb-3">
                 <label for="exampleFullName" class="form-label">Full Name</label>
@@ -67,4 +69,3 @@
     <%- include('./partials/scripts') %>
 </body>
 </html>
-

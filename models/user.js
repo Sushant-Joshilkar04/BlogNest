@@ -30,6 +30,7 @@ const userSchema = new Schema(
         enum:["USER","ADMIN"],
         default:"USER",
     },
+   
 
 },
 {timestamp: true}
